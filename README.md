@@ -14,3 +14,7 @@ Chlotide is an application who is able to chat with seniors. Chatting with them 
 ### How ?
 
 I planned to use an API to get the informations about the seniors and to use a chatbot to answer to the questions of the seniors.
+
+### What already exists ?
+
+There is already a lot of chatbot who can help the seniors to be more autonomous like [Lena](https://www.startuphealth.com/lena). But I think that it's not enough. I think that we can do better. Like by implementing a oral chatbot.
