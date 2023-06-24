@@ -1,5 +1,32 @@
 # Algosup-Moonshot-Project
 
+---
+
+<details>
+
+<summary>Table of Contents</summary>
+
+- [Algosup-Moonshot-Project](#algosup-moonshot-project)
+  - [Idea number 1: Chlotilde](#idea-number-1-chlotilde)
+    - [Description of this idea 1](#description-of-this-idea-1)
+    - [Why I wanted to create the idea 1 ?](#why-i-wanted-to-create-the-idea-1-)
+    - [How I planned to create the idea 1 ?](#how-i-planned-to-create-the-idea-1-)
+    - [What already exists for the idea 1 ?](#what-already-exists-for-the-idea-1-)
+  - [Idea number 2: VHisto](#idea-number-2-vhisto)
+    - [Description of this idea 2](#description-of-this-idea-2)
+    - [Why I wanted to create the idea 2 ?](#why-i-wanted-to-create-the-idea-2-)
+    - [How I planned to create the idea 2 ?](#how-i-planned-to-create-the-idea-2-)
+    - [What already exists for the idea 2 ?](#what-already-exists-for-the-idea-2-)
+  - [Idea number 3: LingoBridge](#idea-number-3-lingobridge)
+    - [Description of this idea 3](#description-of-this-idea-3)
+    - [Why I wanted to create the idea 3 ?](#why-i-wanted-to-create-the-idea-3-)
+    - [How I planned to create the idea 3 ?](#how-i-planned-to-create-the-idea-3-)
+    - [What already exists for the idea 3 ?](#what-already-exists-for-the-idea-3-)
+
+</details>
+
+---
+
 ## Idea number 1: Chlotilde
 
 ### Description of this idea 1
