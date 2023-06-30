@@ -76,7 +76,7 @@ I think that it's important to help the deaf people to communicate with the peop
 
 ### How I planned to create the idea 3 ?
 
-Don't know yet.
+In the first time, I have to create a mobile application, user friendly and really atractive. Then, I'll need to teach to an AI the French sign language and the French language. Finally, I'll need to create a server to connect the mobile application to the AI. There is a lot of work to do but I think that it's possible to do it.
 
 ### What already exists for the idea 3 ?
 
