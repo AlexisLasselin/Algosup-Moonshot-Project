@@ -51,6 +51,14 @@ The first version of the application will translate the French Sign Language (LS
 
 <!-- Describe briefly why the software (or upgrade) is being developed, and list the most important features and capabilities. -->
 
+All around the world, there are millions of people who are deaf or hard of hearing. Sign language is their primary language, and they use it to communicate with others. However, most people do not know sign language, which can lead to communication barriers between the deaf and the hearing and the clear lack of interpreters in the administration, hospitals, and other public places.
+
+This project isn't here to replace interpreters but to help people communicate with the signing community when there are no interpreters available. The application will be able to translate sign language into spoken language and vice versa.
+
+The first version of the application will translate the French Sign Language (LSF) into French, then, once the translation quality is good enough, the possibility of implementing the American Sign Language (ASL) into English will be considered.
+
+The application will be available on all mobile platforms (iOS and Android) and will be free to use, however, a "tip service" will be available to help the project grow.
+
 ### Product functional capabilities
 
 <!-- Present a list of the functions that the software will be required to perform. If a product feature comprises several functional capabilities, a table may be developed to illustrate these relationships. The list of functional capabilities may be an updated version of the capabilities listed in the Software Requirements Document. -->
