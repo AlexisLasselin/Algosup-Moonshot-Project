@@ -63,13 +63,37 @@ The application will be available on all mobile platforms (iOS and Android) and 
 
 <!-- Present a list of the functions that the software will be required to perform. If a product feature comprises several functional capabilities, a table may be developed to illustrate these relationships. The list of functional capabilities may be an updated version of the capabilities listed in the Software Requirements Document. -->
 
+The mobile appplication must have the following capabilities:
+
+- LSF to French translation
+
+  - Being able to use the camera of the smartphone;
+  - Use the AI's "Sign Reader" to "translate" the LSF into French word;
+  - Reapply the correct synthax to the translated text;
+  - Display the result on the smartphone screen, possibly below the camera to get the two different displays at the same time, even if the translation might take a bit of latency;
+  - During the Test Phase, a button asking if the translated line was correctly translated, and if not, ask the user to rewrite the correct sentence.
+
+- French to LSF
+
+  - Allow the user to type (or speak) the requested sentenced;
+  - Transform the sentence to adapt it as the LSF synthax;
+  - Use the other AI's "Sign Maker" to sign the sentence via an avatar;
+  - Show the result on the smartphone screen;
+  - During the Test Phase, a button asking if the signed sentence was properly signed will appear at the bottom of the screen. To increase the AI accuracy, two questions will be shared to the user: What does the translation meant and how to properly sign the requested sentence.
+
+The product must be fast but also correct as it should be a tool during a conversation between two parts, a signing one and a not signing one. If the translation is too slow, it may be a problem regarding the quality of the dialogue and if, in the other hand, if the translation is incorrect, the dialogue is wrong
+
 ### User Roles
 
 <!-- Describe the intended users of the software in terms of job roles, specialized knowledge, skill levels, etc. Considers various user roles such as managers, administrators, auditors, etc. -->
 
+Even if the app is firstly designed for companies that might received deaf customers, the main goal is to deliver the product to the biggest amount of users without having a negative impact on jobs such as interprets.
+
 ### Use Cases for all operations
 
 <!-- Describe how persons will normally use the software, and the tasks they will most frequently perform. Also covers how users might use the software on an occasional basis, such as creating data backups or importing data from another program. -->
+
+There will be only one real use, allow communication in a quick and efficient way, now I'll show you different use cases:
 
 ### General constraints
 
