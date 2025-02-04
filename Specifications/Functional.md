@@ -13,7 +13,7 @@
     - [Use Cases for all operations](#use-cases-for-all-operations)
     - [General constraints](#general-constraints)
     - [Assumptions](#assumptions)
-    - [Other software](#other-software)
+    - [Other software Dependencies](#other-software-dependencies)
   - [Specific Function Descriptions](#specific-function-descriptions)
     - [Camera](#camera)
     - [AI's "Sign Reader"](#ais-sign-reader)
@@ -23,7 +23,6 @@
     - [Processing](#processing)
     - [Outputs](#outputs)
     - [Hardware Interfaces](#hardware-interfaces)
-    - [Software Interfaces](#software-interfaces)
     - [Communication Interfaces](#communication-interfaces)
     - [Performance](#performance)
     - [Design Constraints](#design-constraints)
@@ -45,50 +44,40 @@
 
 <!-- Describe the purpose, scope, and organization of the Functional Specification. -->
 
-This document describes the functional specifications of my moonshot project: <!---TODO: Find a name for my Moonshot project--> a mobile application that translates sign language into a spoken language.
-The first version of the application will translate the French Sign Language (LSF) into French, then the American Sign Language (ASL) into English.
-
 ### Product description
+
+This document details the functional specifications for **MonSigne**, a mobile application designed to bridge communication gaps between sign language users and non-signing individuals. The first version of the app will support French Sign Language (LSF) to French, followed by American Sign Language (ASL) to American English.
 
 <!-- Describe briefly why the software (or upgrade) is being developed, and list the most important features and capabilities. -->
 
-All around the world, there are millions of people who are deaf or hard of hearing. Sign language is their primary language, and they use it to communicate with others. However, most people do not know sign language, which can lead to communication barriers between the deaf and the hearing and the clear lack of interpreters in the administration, hospitals, and other public places.
-
-This project isn't here to replace interpreters but to help people communicate with the signing community when there are no interpreters available. The application will be able to translate sign language into spoken language and vice versa.
-
-The first version of the application will translate the French Sign Language (LSF) into French, then, once the translation quality is good enough, the possibility of implementing the American Sign Language (ASL) into English will be considered.
-
-The application will be available on all mobile platforms (iOS and Android) and will be free to use, however, a "tip service" will be available to help the project grow.
-
 ### Product functional capabilities
 
-<!-- Present a list of the functions that the software will be required to perform. If a product feature comprises several functional capabilities, a table may be developed to illustrate these relationships. The list of functional capabilities may be an updated version of the capabilities listed in the Software Requirements Document. -->
+The application must have the following capabilities:
 
-The mobile appplication must have the following capabilities:
+- **LSF to French Translation**
 
-- LSF to French translation
+  - Utilize smartphone cameras to capture sign language.
+  - AI-based "Sign Reader" to interpret and convert LSF into text.
+  - Adjust translations for proper syntax.
+  - Display real-time translated text.
+  - Provide user feedback options for accuracy improvement.
 
-  - Being able to use the camera of the smartphone;
-  - Use the AI's "Sign Reader" to "translate" the LSF into French word;
-  - Reapply the correct synthax to the translated text;
-  - Display the result on the smartphone screen, possibly below the camera to get the two different displays at the same time, even if the translation might take a bit of latency;
-  - During the Test Phase, a button asking if the translated line was correctly translated, and if not, ask the user to rewrite the correct sentence.
-
-- French to LSF
-
-  - Allow the user to type (or speak) the requested sentenced;
-  - Transform the sentence to adapt it as the LSF synthax;
-  - Use the other AI's "Sign Maker" to sign the sentence via an avatar;
-  - Show the result on the smartphone screen;
-  - During the Test Phase, a button asking if the signed sentence was properly signed will appear at the bottom of the screen. To increase the AI accuracy, two questions will be shared to the user: What does the translation meant and how to properly sign the requested sentence.
-
-The product must be fast but also correct as it should be a tool during a conversation between two parts, a signing one and a not signing one. If the translation is too slow, it may be a problem regarding the quality of the dialogue and if, in the other hand, if the translation is incorrect, the dialogue is wrong
+- **French to LSF**
+  - Accept user input via text or voice.
+  - Convert spoken/written language into LSF syntax.
+  - Utilize AI-based "Sign Maker" to generate sign language through an avatar.
+  - Display real-time signed output.
+  - Offer feedback options for improving AI accuracy.
 
 ### User Roles
 
 <!-- Describe the intended users of the software in terms of job roles, specialized knowledge, skill levels, etc. Considers various user roles such as managers, administrators, auditors, etc. -->
 
-Even if the app is firstly designed for companies that might received deaf customers, the main goal is to deliver the product to the biggest amount of users without having a negative impact on jobs such as interprets.
+The application is designed for a broad audience, including:
+
+- Deaf and Hard-of-Hearing Users – Primary users who need to communicate with non-signers.
+- General Public – Individuals who need to interact with sign language users.
+- Healthcare Professionals, Government Staff, and Customer Service Representatives – Users who require quick translation services in professional settings.
 
 ### Use Cases for all operations
 
@@ -96,29 +85,31 @@ Even if the app is firstly designed for companies that might received deaf custo
 
 There will be only one real use, allow communication in a quick and efficient way, now I'll show you different use cases:
 
-- **Use Case 1**: A deaf person is in a hospital and needs to communicate with the doctor. The doctor doesn't know sign language, so the deaf person uses the application to translate his sign language into spoken language.
-- **Use Case 2**: A deaf person just arrived in a new city, and he needs to fill papers in the mayors' office. The person doesn't know sign language, so the person uses the application to translate his spoken language into sign language.
-- **Use Case 3**: A deaf person is assisting to a small conference that don't have the budget to hire an interpreter. The person uses the application to translate the speaker's spoken language into sign language.
+1. Medical Scenario: A deaf patient communicates with a doctor who does not know sign language.
+2. Government Services: A deaf individual filling out paperwork at a local office.
+3. Education & Conferences: Attendees using the app to understand spoken presentations.
 
 ### General constraints
 
 <!-- Describe any algorithm limitations, user interface limitations, data limitations, etc. Include items such as minimum space or room needed to house equipment, type of electrical and HVAC required (e.g. conditioned power), maintenance requirements. Also, state if training is required for optimum use, or if calculated results are only applicable in certain situations. -->
 
-The application will need a good internet connection to work properly, as it will use AI to translate the sign language into spoken language and vice versa. The application will need to adapt to every type of camera, as governmental agencies might not have the latest quality of smartphones, however, they still need to communicate with the deaf community.
-Another possible constraint is the latency of the translation, as it should be as fast as possible to not disturb the conversation.
+- Requires a stable internet connection for real-time AI translation.
+- Must function across varying camera qualities and lighting conditions.
+- Translation latency must be minimized to enable fluid conversations.
 
 ### Assumptions
 
 <!-- List any assumptions that were made in specifying the functional requirements. -->
 
-The application will be free to use, however, a "tip service" will be available to help the project grow.
-We assume the deaf people sign French Sign Language (LSF), and not a dialect of it, as the application will be able to translate the LSF into French.
+- Users are primarily fluent in LSF or ASL.
+- The app will remain free, with an optional tipping feature to support development.
 
-### Other software
+### Other software Dependencies
 
 <!-- How does the program interact with other software, such as spreadsheets, word processing or presentation software? For example, can a user cut and paste from the application to other Windows software programs? Does the program import/export data to other software? Does the program use any communication, integration, or protocols to exchange data with other software? -->
 
-The application will require a camera access to work properly, as it will use the camera to translate the sign language into spoken language and vice versa. The application will also require an internet connection to use the AI to translate the sign language.
+- Requires camera and microphone access.
+- Cloud-based AI models for translation processing.
 
 ## Specific Function Descriptions
 
@@ -193,9 +184,8 @@ The application will display the result of the translation on the smartphone scr
 
 <!-- Describe the equipment needed to run the software, and also other output or input devices such as printers or handheld devices. -->
 
-### Software Interfaces
-
-<!-- Describe any software that will be required in order for the product to operate fully. Include any in-house software or commercial applications that customers will be utilizing together with the planned software. Also describes any software that the software product will interact with such as operating system platforms supported, file import and export, networking, automation, or scripting. Specify whether the users must provide the interfacing software themselves, and any special licensing requirements. -->
+The application will require a camera access to work properly, as it will use the camera to translate the sign language into spoken language and vice versa.
+A microphone might be used to allow the user to speak the sentence to be translated.
 
 ### Communication Interfaces
 
