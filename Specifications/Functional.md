@@ -15,12 +15,13 @@
     - [Assumptions](#assumptions)
     - [Other software](#other-software)
   - [Specific Function Descriptions](#specific-function-descriptions)
-    - [Description](#description)
+    - [Camera](#camera)
+    - [AI's "Sign Reader"](#ais-sign-reader)
+    - [AI's "Sign Maker"](#ais-sign-maker)
+    - [User Interface](#user-interface)
     - [Inputs](#inputs)
     - [Processing](#processing)
     - [Outputs](#outputs)
-  - [External Interfaces](#external-interfaces)
-    - [User Interfaces](#user-interfaces)
     - [Hardware Interfaces](#hardware-interfaces)
     - [Software Interfaces](#software-interfaces)
     - [Communication Interfaces](#communication-interfaces)
@@ -95,47 +96,98 @@ Even if the app is firstly designed for companies that might received deaf custo
 
 There will be only one real use, allow communication in a quick and efficient way, now I'll show you different use cases:
 
+- **Use Case 1**: A deaf person is in a hospital and needs to communicate with the doctor. The doctor doesn't know sign language, so the deaf person uses the application to translate his sign language into spoken language.
+- **Use Case 2**: A deaf person just arrived in a new city, and he needs to fill papers in the mayors' office. The person doesn't know sign language, so the person uses the application to translate his spoken language into sign language.
+- **Use Case 3**: A deaf person is assisting to a small conference that don't have the budget to hire an interpreter. The person uses the application to translate the speaker's spoken language into sign language.
+
 ### General constraints
 
 <!-- Describe any algorithm limitations, user interface limitations, data limitations, etc. Include items such as minimum space or room needed to house equipment, type of electrical and HVAC required (e.g. conditioned power), maintenance requirements. Also, state if training is required for optimum use, or if calculated results are only applicable in certain situations. -->
+
+The application will need a good internet connection to work properly, as it will use AI to translate the sign language into spoken language and vice versa. The application will need to adapt to every type of camera, as governmental agencies might not have the latest quality of smartphones, however, they still need to communicate with the deaf community.
+Another possible constraint is the latency of the translation, as it should be as fast as possible to not disturb the conversation.
 
 ### Assumptions
 
 <!-- List any assumptions that were made in specifying the functional requirements. -->
 
+The application will be free to use, however, a "tip service" will be available to help the project grow.
+We assume the deaf people sign French Sign Language (LSF), and not a dialect of it, as the application will be able to translate the LSF into French.
+
 ### Other software
 
 <!-- How does the program interact with other software, such as spreadsheets, word processing or presentation software? For example, can a user cut and paste from the application to other Windows software programs? Does the program import/export data to other software? Does the program use any communication, integration, or protocols to exchange data with other software? -->
+
+The application will require a camera access to work properly, as it will use the camera to translate the sign language into spoken language and vice versa. The application will also require an internet connection to use the AI to translate the sign language.
 
 ## Specific Function Descriptions
 
 <!-- This section is repeated for each function of the software. Some examples of functions are: engineering calculations, sorting or sequencing, other operations relating inputs to outputs, validity checks on inputs, error handling and recovery. -->
 
-### Description
+The product will be splited in 4 mains functions: the camera, the AI's "Sign Reader", the AI's "Sign Maker" and the user interface.
+
+### Camera
 
 <!-- Describe the function and its role in the software. -->
+
+The camera will be used to capture the sign language and transform it into a digital format that the AI's "Sign Reader" can understand.
+
+### AI's "Sign Reader"
+
+<!-- Describe the function and its role in the software. -->
+
+The AI's "Sign Reader" will be used to translate the sign language into spoken language.
+However, as LSF's grammar is different from the French one, the AI's "Sign Reader" will need to reapply the correct synthax to the translated text.
+
+### AI's "Sign Maker"
+
+<!-- Describe the function and its role in the software. -->
+
+Similarly to the AI's "Sign Reader", the AI's "Sign Maker" will be used to translate the spoken language into sign language.
+The AI's "Sign Maker" will need to transform the sentence to adapt it as the LSF synthax.
+Thanks to an avatar, the AI's "Sign Maker" will be able to sign the sentence.
+
+### User Interface
+
+<!-- Describe the function and its role in the software.
+
+Describe all major screens, pages, forms, including any complex dialog boxes. This is usually best done via simulated, non-functioning screen shots, and may take the form of a separate document.
+
+The navigation flow of the windows, menus, and options is described, along with the expected content of each window. Examples of items included are screen resolutions, color scheme, primary font type and size. Discussion also includes how input validation will be done, and how data will be protected from accidental changes. Specific items are described for each screen such as input fields, control buttons, sizing options, and menus. -->
+
+The user interface will be used to display the result of the translation on the smartphone screen.
+The app will be really simple to use and the design will be minimalist to not disturb the conversation.
+During the testing phase, a button asking if the translated line was correctly translated will appear at the bottom of the screen, and if not, ask the user to rewrite the correct sentence, same goes for the signed sentence.
+
+As the application will be used in public places, the user interface will need to be adapted to every type of camera.
 
 ### Inputs
 
 <!-- Describe the inputs to the function. Where user interface (UI) elements are present, these are described. Examples of UI elements are check boxes, dropdown lists, and alphanumeric fields. Input validation strategy, allowed data types and value ranges are specified for each input. -->
 
+The inputs of the application will be the sign language and the spoken language.
+
+The sign language will be captured by the camera, and the spoken language will be typed or spoken by the user.
+
+The application will need a good internet connection to work properly, as it will use AI to translate the sign language into spoken language and vice versa.
+
 ### Processing
 
 <!-- Describe what is done by the function. Where algorithms, equations, or other logic are used, they are described here. If calculations are done utilizing the methods of specific standards or references, these are cited. Database definitions are also included where relevant. -->
+
+The application will use AI to translate the sign language into spoken language and vice versa.
+
+The AI's "Sign Reader" will be used to translate the sign language into spoken language meanwhile the AI's "Sign Maker" will be used to translate the spoken language into sign language.
+
+The AI's "Sign Reader" will need to reapply the correct synthax to the translated text, and the AI's "Sign Maker" will need to transform the sentence to adapt it as the LSF synthax.
 
 ### Outputs
 
 <!-- Describe the outputs of the function. Where a user interface description is relevant, it is included. Define any reports. -->
 
-## External Interfaces
+The outputs of the application will be the translated sign language and the translated spoken language.
 
-<!-- The interfaces in this section are specified by documenting: the name and description of each item, source or input, destination or output, ranges, accuracy and tolerances, units of measure, timing, display formats and organization, and data formats. -->
-
-### User Interfaces
-
-<!-- Describe all major screens, pages, forms, including any complex dialog boxes. This is usually best done via simulated, non-functioning screen shots, and may take the form of a separate document.
-
-The navigation flow of the windows, menus, and options is described, along with the expected content of each window. Examples of items included are screen resolutions, color scheme, primary font type and size. Discussion also includes how input validation will be done, and how data will be protected from accidental changes. Specific items are described for each screen such as input fields, control buttons, sizing options, and menus. -->
+The application will display the result of the translation on the smartphone screen, possibly below the camera to get the two different displays at the same time, even if the translation might take a bit of latency.
 
 ### Hardware Interfaces
 
