@@ -16,9 +16,4 @@ Although I can't help people learn sign language, I want to help people who can 
 How can I do this? My idea is to design an application that translates sign language into a natural language, like Google Translate.
 I know that there's a company called SignAll, that has partially implemented my project. But this company works more in B2B and requires a certain amount of hardware, whereas my idea would be to make it in the form of a mobile application to democratize this.
 
-My aim for the very first version would be to translate ASL, the American Sign Language, the most widely signed in the world with almost half a million signers, into English.
-
-English conversion to other world languages would then follow.
-
-And if I ever have the skills and knowledge to, allow users to have lessons to learn sign language.
-That's why I got in touch with deaf and dumb associations who seemed interested in the idea.
+My aim for the very first version would be to translate LSF, the French Sign Language,then go the ASL, the American Sign Language as it is the most widely signed in the world with almost half a million signers, into English.

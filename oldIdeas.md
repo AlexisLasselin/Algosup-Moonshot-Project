@@ -7,7 +7,7 @@
 <summary>Table of Contents</summary>
 
 - [Algosup-Moonshot-Project](#algosup-moonshot-project)
-  - [Idea number 1: Chlotilde](#idea-number-1-chlotilde)
+  - [Idea number 1: Clotilde](#idea-number-1-clotilde)
     - [Description of this idea 1](#description-of-this-idea-1)
     - [Why I wanted to create the idea 1 ?](#why-i-wanted-to-create-the-idea-1-)
     - [How I planned to create the idea 1 ?](#how-i-planned-to-create-the-idea-1-)
@@ -22,11 +22,11 @@
 
 ---
 
-## Idea number 1: Chlotilde
+## Idea number 1: Clotilde
 
 ### Description of this idea 1
 
-Chlotide is an application who is able to chat with seniors. Chatting with them can help them to be more autonomous and feel less alone.
+Clotilde is an application who is able to chat with seniors. Chatting with them can help them to be more autonomous and feel less alone.
 
 ### Why I wanted to create the idea 1 ?
 
@@ -35,7 +35,7 @@ Chlotide is an application who is able to chat with seniors. Chatting with them 
 
 ### How I planned to create the idea 1 ?
 
-I planned to use an API to get the informations about the seniors and to use a chatbot to answer to the questions of the seniors.
+I planned to use an API to get the information about the seniors and to use a chatbot to answer to the questions of the seniors.
 
 ### What already exists for the idea 1 ?
 
@@ -49,7 +49,7 @@ During this month, I had an idea, develop a VR application to give some interest
 
 ### Why I wanted to create the idea 2 ?
 
-I think that it could be a good idea to give some interest to children about history. 
+I think that it could be a good idea to give some interest to children about history.
 
 ### How I planned to create the idea 2 ?
 
