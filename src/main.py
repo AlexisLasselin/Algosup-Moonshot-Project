@@ -72,13 +72,14 @@ while cap.isOpened():
                     cv2.line(frame, points[0], points[2], (0, 255, 0), 2)  
                     cv2.line(frame, points[1], points[3], (0, 255, 0), 2)  
                     cv2.line(frame, points[2], points[1], (0, 255, 0), 2)  
-                    cv2.line(frame, points[3], points[0], (0, 255, 0), 2)  
+                    cv2.line(frame, points[3], points[0], (0, 255, 0), 2) 
+
                 # Eyes: connect the points to form complete eyes (not two lines)
                 if key == "eyes":
-                    cv2.line(frame, points[0], points[2], (0, 255, 0), 2)  # Top-left to bottom-left
-                    cv2.line(frame, points[1], points[3], (0, 255, 0), 2)  # Bottom-left to bottom-right
-                    cv2.line(frame, points[2], points[0], (0, 255, 0), 2)  # Bottom-right to top-right
-                    cv2.line(frame, points[3], points[1], (0, 255, 0), 2)  # Top-right to top-left
+                    cv2.line(frame, points[0], points[2], (0, 255, 0), 2) 
+                    cv2.line(frame, points[1], points[3], (0, 255, 0), 2) 
+                    cv2.line(frame, points[2], points[0], (0, 255, 0), 2) 
+                    cv2.line(frame, points[3], points[1], (0, 255, 0), 2) 
 
     # Display
     cv2.imshow("LSF Dataset Capture", frame)
