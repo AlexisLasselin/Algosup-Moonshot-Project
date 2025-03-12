@@ -25,7 +25,8 @@ face_keypoints = {
 pose_keypoints = {
     "shoulders": [11, 12],
     "elbows": [13, 14],
-    "hips": [23, 24]
+    "hips": [23, 24],
+    "wrists": [15, 16]
 }
 
 # Capture video
@@ -139,13 +140,8 @@ while cap.isOpened():
         cv2.line(frame, keypoint_positions["hips"][0], keypoint_positions["hips"][1], (255, 0, 0), 3)
         cv2.line(frame, keypoint_positions["shoulders"][0], keypoint_positions["hips"][0], (255, 0, 0), 3)
         cv2.line(frame, keypoint_positions["shoulders"][1], keypoint_positions["hips"][1], (255, 0, 0), 3)
-
-        # Connect elbows to wrists (if detected)
-        if wrist_positions["right"] and "elbows" in keypoint_positions:
-            cv2.line(frame, keypoint_positions["elbows"][0], wrist_positions["right"], (0, 255, 255), 3)  # Yellow Line
-
-        if wrist_positions["left"] and "elbows" in keypoint_positions:
-            cv2.line(frame, keypoint_positions["elbows"][1], wrist_positions["left"], (0, 255, 255), 3)  # Yellow Line
+        cv2.line(frame, keypoint_positions["elbows"][0], keypoint_positions["wrists"][0], (255, 0, 0), 3)
+        cv2.line(frame, keypoint_positions["elbows"][1], keypoint_positions["wrists"][1], (255, 0, 0), 3)
 
     # Display
     cv2.imshow("Body recognition", frame)
