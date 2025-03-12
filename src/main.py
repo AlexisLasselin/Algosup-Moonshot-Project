@@ -148,7 +148,7 @@ while cap.isOpened():
             cv2.line(frame, keypoint_positions["elbows"][1], wrist_positions["left"], (0, 255, 255), 3)  # Yellow Line
 
     # Display
-    cv2.imshow("Pose + Face + Hands", frame)
+    cv2.imshow("Body recognition", frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
