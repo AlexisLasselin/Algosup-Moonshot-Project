@@ -26,8 +26,8 @@ My aim for the very first version would be to translate LSF, the French Sign Lan
 
 - [x] Send requests to all French deaf Universities to get info about the various LSF signs
 - [x] Contact Elix for the same reason
-- [ ] Find a dataset of LSF signs
-- [ ] Create an AI model
+- ~~[ ] Find a dataset of LSF signs~~
+- [x] Create an AI model
 
 ### Concrete actions to take starting tomorrow
 
