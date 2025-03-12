@@ -11,11 +11,13 @@ face = mp_face.FaceMesh(max_num_faces=1, min_detection_confidence=0.5, min_track
 
 # Face keypoints
 face_keypoints = {
-    "cheek": [93, 323, 205, 425],  # These connect to the chin and possibly the forehead
-    "eyes": [33, 263, 159, 386],  # Eye points for connecting to form circles
-    "forehead": [10, 151],  # Forehead points to connect to the cheeks
-    "mouth": [61, 291, 13, 14],  # Mouth keypoints for diamond shape
-    "chin": [199]  # Chin point
+    "cheek": [205, 123, 192, 425, 416, 352],
+    "eyes": [33, 133, 362, 263],
+    "ears": [127, 93, 323, 356],
+    "forehead": [67, 10, 297],
+    "mouth": [61, 291, 13, 14],
+    "chin": [170, 199, 395],
+    "nose": [2, 5, 6]
 }
 
 # Capture
@@ -57,16 +59,6 @@ while cap.isOpened():
                 for i in range(len(points)):
                     cv2.circle(frame, points[i], 5, (0, 255, 0), cv2.FILLED)
 
-                # Connect cheeks to chin and possibly forehead
-                if key == "cheek":
-                    for i in range(len(points)):
-                        # Connect cheek to chin
-                        cv2.line(frame, points[i], keypoint_positions["chin"][0], (0, 255, 0), 2)
-                    # Optional: connect cheeks to forehead
-                    if len(points) > 1:
-                        for i in range(len(points) - 1):
-                            cv2.line(frame, points[i], keypoint_positions["forehead"][0], (0, 255, 0), 2)
-
                 # Mouth: connect to form a diamond shape
                 if key == "mouth":
                     cv2.line(frame, points[0], points[2], (0, 255, 0), 2)  
@@ -76,10 +68,32 @@ while cap.isOpened():
 
                 # Eyes: connect the points to form complete eyes (not two lines)
                 if key == "eyes":
-                    cv2.line(frame, points[0], points[2], (0, 255, 0), 2) 
-                    cv2.line(frame, points[1], points[3], (0, 255, 0), 2) 
-                    cv2.line(frame, points[2], points[0], (0, 255, 0), 2) 
-                    cv2.line(frame, points[3], points[1], (0, 255, 0), 2) 
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[2], points[3], (0, 255, 0), 2) 
+                
+                if key == "nose":
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[1], points[2], (0, 255, 0), 2)
+
+                if key == "forehead":
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[1], points[2], (0, 255, 0), 2)
+
+                if key == "chin":
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[1], points[2], (0, 255, 0), 2)
+
+                if key == "ears":
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[2], points[3], (0, 255, 0), 2)
+
+                if key == "cheek":
+                    cv2.line(frame, points[0], points[1], (0, 255, 0), 2)
+                    cv2.line(frame, points[1], points[2], (0, 255, 0), 2)
+                    cv2.line(frame, points[2], points[0], (0, 255, 0), 2)
+                    cv2.line(frame, points[3], points[4], (0, 255, 0), 2)
+                    cv2.line(frame, points[4], points[5], (0, 255, 0), 2)
+                    cv2.line(frame, points[5], points[3], (0, 255, 0), 2)
 
     # Display
     cv2.imshow("LSF Dataset Capture", frame)
