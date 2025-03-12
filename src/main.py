@@ -23,9 +23,9 @@ face_keypoints = {
 }
 
 pose_keypoints = {
-    "shoulders": [11, 12],  # Left & Right Shoulder
-    "elbows": [13, 14],      # Left & Right Elbow
-    "hips": [23, 24]         # Left & Right Hip
+    "shoulders": [11, 12],
+    "elbows": [13, 14],
+    "hips": [23, 24]
 }
 
 # Capture video
