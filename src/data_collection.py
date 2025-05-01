@@ -12,7 +12,7 @@ detector = HandDetector(detectionCon=0.8, maxHands=1)
 offset = 20
 imgSize = 300
 
-folder = "src/lsf_dataset/G"  # Change the place where you want to save the images
+folder = "src/lsf_dataset/Y"  # Change the place where you want to save the images
 counter = 0
 
 while True:
@@ -54,7 +54,6 @@ while True:
         counter += 1
         print("Saved", counter)
         print("Total images in folder:", len(os.listdir(folder)))
-        print(len(os.listdir(folder)))
     if key == ord("q"):
         break
 capture.release()
