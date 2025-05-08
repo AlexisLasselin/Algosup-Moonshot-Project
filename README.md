@@ -18,45 +18,37 @@ I know that there's a company called SignAll, that has partially implemented my 
 
 My aim for the very first version would be to translate LSF, the French Sign Language,then go the ASL, the American Sign Language as it is the most widely signed in the world with almost half a million signers, into English.
 
----
+### How does it work?
 
-## Action plan
+The idea is to use a camera to film the person signing, then use a neural network to detect the signs and translate them into text.
+The neural network will be trained on a dataset of videos of people signing, with the corresponding text as labels.
+The neural network will be able to detect the signs in real time and translate them into text, which will then be displayed on the screen.
 
-### Specific short-term goals (1-3 weeks)
+### Can I try it?
 
-- [x] Send requests to all French deaf Universities to get info about the various LSF signs
-- [x] Contact Elix for the same reason
-- [ ] Find a dataset of LSF signs
-- [ ] Create an AI model
+Sure! You can try it by currently downloading the repository and running the file `test.py`.
+This will open a window with the camera and you can start signing in front of it. The application will then detect the letter you are signing and display it on the screen.
+The application is currently trained on the French Sign Language alphabet, but I plan to train it on the whole LSF.
 
-### Concrete actions to take starting tomorrow
+### How to use it?
 
-- [x] Prepare my emails for LSF organizations
-- [x] Send a DM to Franck Jeannin, asking him if I might have the contact of AI "experts" from the Jury of the Bac+4 oral presentation.
+1. Clone the repository
+2. Install the requirements
+3. Run the file `test.py` to test the application
 
-### Possible obstacles and anticipated solutions
+#### Requirements
 
-- I might not find a dataset of LSF signs
-  - I will create my own dataset by asking the community and the teachers from my LSF classes to help me.
-- AI model might not exist for my goal.
-  - I will create it myself, with help from Franck's contacts.
-- I might be giving up too quickly.
-  - By giving small goals, I will be able to see the progress I make and keep my motivation.
-- I might not have enough time.
-  - I will work on it every day for an hour, and try to make a big session on Saturday, keeping my Sundays off.
-- I might not have enough money.
-  - I will try to find free resources, and if I can't, I might reconsider the importance of this ressource in my project.
-- I might not have enough knowledge.
-  - I will learn as I go, and ask for help when I need it.
-- I might not have enough motivation.
-  - I will send my progress to a classmate every week, allowing them to ask me about it, and I will also keep a journal of my progress.
+- Python 3.11
+- OpenCV
+- TensorFlow
+- NumPy
+- Mediapipe
 
-### How I will measure my progress
+> [!NOTE]
+> The software has been tested only on Ubuntu 24.04 but it should work on Windows and MacOS too.
 
-- I will have sent all my emails by the end of the week.
-- I will have received an answer from at least one of the organizations before the holidays.
-- I will explain my project to the experts by the end of the week.
+#### What are the other files?
 
-For later, I will have other progress indicators, but for now, I will focus on these.
-
----
+- **test.py**: The main file that runs the sign language detection.
+- **data_collection.py**: The main file that allows you to generate images from the webcam for the training.
+- **main.py**: An outdated file that was used to detect the various parts of the body that are needed to detect the signs.
