@@ -54,6 +54,7 @@ while True:
         counter += 1
         print("Saved", counter)
         print("Total images in folder:", len(os.listdir(folder)))
+
     if key == ord("q"):
         break
 capture.release()
