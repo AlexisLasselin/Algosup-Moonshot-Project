@@ -6,23 +6,33 @@
 <summary>Click to expand</summary>
 
 - [Moonshot Project Report](#moonshot-project-report)
-	- [Table of Contents](#table-of-contents)
-	- [I. Introduction](#i-introduction)
-	- [II. Problem Statement](#ii-problem-statement)
-	- [III. Project Overview](#iii-project-overview)
-		- [Project Description](#project-description)
-		- [Target Users](#target-users)
-		- [Contexts of Use](#contexts-of-use)
-		- [Added Value and Impact](#added-value-and-impact)
-	- [IV. Functional Specifications](#iv-functional-specifications)
-	- [V. Technical Specifications](#v-technical-specifications)
-	- [VI. Software Architecture](#vi-software-architecture)
-	- [VII. Algorithm and Model Design](#vii-algorithm-and-model-design)
-	- [VIII. Testing Strategy](#viii-testing-strategy)
-	- [IX. Deployment and Production](#ix-deployment-and-production)
-	- [X. Project Management](#x-project-management)
-	- [XI. Future Developments](#xi-future-developments)
-	- [XII. Conclusion](#xii-conclusion)
+  - [Table of Contents](#table-of-contents)
+  - [I. Introduction](#i-introduction)
+  - [II. Problem Statement](#ii-problem-statement)
+  - [III. Project Overview](#iii-project-overview)
+    - [Project Description](#project-description)
+    - [Target Users](#target-users)
+    - [Contexts of Use](#contexts-of-use)
+    - [Added Value and Impact](#added-value-and-impact)
+  - [IV. Functional Specifications](#iv-functional-specifications)
+    - [1. Core Feature: Sign-to-Text Translation](#1-core-feature-sign-to-text-translation)
+    - [2. Target Users](#2-target-users)
+    - [3. Interaction Flow](#3-interaction-flow)
+    - [4. Accessibility Considerations](#4-accessibility-considerations)
+  - [V. Technical Specifications](#v-technical-specifications)
+    - [1. Sign Recognition Pipeline Overview](#1-sign-recognition-pipeline-overview)
+    - [2. Technology Stack](#2-technology-stack)
+    - [3. MediaPipe Landmark Detection](#3-mediapipe-landmark-detection)
+    - [4. Model Training via Teachable Machine](#4-model-training-via-teachable-machine)
+      - [Training Process](#training-process)
+    - [5. Performance and Limitations](#5-performance-and-limitations)
+  - [VI. Software Architecture](#vi-software-architecture)
+  - [VII. Algorithm and Model Design](#vii-algorithm-and-model-design)
+  - [VIII. Testing Strategy](#viii-testing-strategy)
+  - [IX. Deployment and Production](#ix-deployment-and-production)
+  - [X. Project Management](#x-project-management)
+  - [XI. Future Developments](#xi-future-developments)
+  - [XII. Conclusion](#xii-conclusion)
 
 </details>
 
@@ -102,17 +112,124 @@ By focusing specifically on French Sign Language and real-life interaction, this
 
 ## IV. Functional Specifications
 
-- Core features
-- User roles
-- Interaction flow (e.g., sign-to-text, voice-to-sign)
-- Accessibility considerations
+The application is designed to facilitate communication between deaf individuals who use French Sign Language (LSF) and hearing individuals who do not understand it. While the final product will include multiple features, this academic project will focus primarily on the most technically challenging component: **Sign-to-Text Translation**.
+
+### 1. Core Feature: Sign-to-Text Translation
+
+This feature enables users to perform signs in front of their device’s camera. The app captures the gesture and uses a machine learning model to recognize the sign and convert it into written French.
+
+The sign-to-text module will initially support a limited set of static signs, starting with the LSF alphabet. As the system evolves, support for dynamic signs and full expressions will be added.
+
+### 2. Target Users
+
+This feature is primarily intended for **hearing individuals** who need to understand what a deaf person is signing in real time. The key user groups include:
+
+- **Family members and friends** of deaf individuals who do not know LSF.
+- **Administrative personnel** (e.g., in town halls, social services, or banks) who interact with the public.
+- **Medical professionals**, such as doctors, nurses, or pharmacists, who need to communicate quickly and clearly with patients.
+
+Although the feature can be used by deaf individuals themselves, they are not the primary users in this context. The goal is not to teach LSF to the world, but rather to **equip hearing people with a tool that enables them to understand deaf signers** more effectively and respectfully.
+
+### 3. Interaction Flow
+
+The typical interaction for this feature will follow these steps:
+
+1. The hearing person opens the app on their phone or tablet.
+2. The deaf person signs a word or letter in front of the camera.
+3. The app analyzes the gesture and displays the corresponding French word or character in real time.
+
+### 4. Accessibility Considerations
+
+To ensure usability for a wide range of users, the app will include:
+
+- A clean and intuitive interface with large buttons and high-contrast visuals.
+- Support for both portrait and landscape modes to adapt to different devices.
+- Minimal setup steps to enable fast communication in critical moments (e.g., medical emergencies).
+
+Future versions may include additional accessibility options, such as adjustable text size, voice output for translated signs, or offline usage for low-connectivity areas.
 
 ## V. Technical Specifications
 
-- Technology stack
-- System architecture
-- Model architecture (if applicable)
-- Dataset structure and sources
+This section focuses on the technical implementation of the sign recognition component of the application, which is the core of this project. The goal is to recognize static hand gestures (initially the LSF alphabet) using computer vision and machine learning.
+
+### 1. Sign Recognition Pipeline Overview
+
+The sign recognition system consists of the following stages:
+
+1. **Image Capture**: The app accesses the device’s camera and captures frames of the user performing signs.
+2. **Landmark Detection**: MediaPipe is used to extract hand, face, and body landmarks in real time.
+3. **Feature Extraction**: The 3D coordinates of key landmarks are transformed into a flat vector.
+4. **Classification**: A machine learning model, trained via Google Teachable Machine and exported in TensorFlow.js format, classifies the gesture based on the landmark data.
+
+### 2. Technology Stack
+
+| Component             | Tool / Library                | Purpose                                |
+| --------------------- | ----------------------------- | -------------------------------------- |
+| Landmark Detection    | MediaPipe (Python)            | Detect hand and body keypoints         |
+| Model Training        | Google Teachable Machine      | Train a classifier using landmark data |
+| Model Inference       | TensorFlow.js (for prototype) | Run trained model in browser or app    |
+| Dataset Format        | CSV / JSON                    | Exported landmark data per sign        |
+| Visualization & Debug | OpenCV (Python)               | Visual feedback during prototyping     |
+
+### 3. MediaPipe Landmark Detection
+
+MediaPipe’s holistic model is used to detect 33 pose landmarks, 21 hand landmarks per hand, and 468 face landmarks. The relevant data for static sign recognition are primarily the **hand landmarks**, but face and body orientation can also be included to improve accuracy and reduce false positives.
+
+Here is a simplified Python snippet used for real-time landmark extraction:
+
+```python
+import cv2
+import mediapipe as mp
+
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1)
+mp_draw = mp.solutions.drawing_utils
+
+cap = cv2.VideoCapture(0)
+
+while True:
+    success, image = cap.read()
+    image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    result = hands.process(image_rgb)
+
+    if result.multi_hand_landmarks:
+        for handLms in result.multi_hand_landmarks:
+            mp_draw.draw_landmarks(image, handLms, mp_hands.HAND_CONNECTIONS)
+
+    cv2.imshow("LSF Sign Detection", image)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+```
+
+The extracted landmarks (x, y, z coordinates) are stored and labeled to create a dataset used for model training.
+
+### 4. Model Training via Teachable Machine
+
+Google Teachable Machine was chosen for training the first prototype because of its simplicity and ability to export TensorFlow\.js models.
+
+#### Training Process
+
+- Images are captured with labeled hand signs (A–Z).
+- Landmarks are extracted and converted into a feature vector.
+- A classifier is trained using a simple neural network.
+- The model is exported in `.json` (architecture) and `.bin` (weights) formats for direct use in web or mobile apps.
+
+Although Teachable Machine does not provide control over hyperparameters or architecture depth, it allows for **fast iteration** and **deployment-ready models**, which suits early-stage prototyping.
+
+### 5. Performance and Limitations
+
+- **Accuracy** (prototype): \~90% on well-lit, static backgrounds for distinct letters.
+- **Limitations**:
+
+  - Sensitive to hand positioning and camera angle.
+  - Only supports **static signs** — dynamic gesture recognition (e.g., movement-based signs) is not yet supported.
+  - Background noise and lighting variation reduce model reliability.
+
+These limitations will be addressed in future iterations through:
+
+- Data augmentation techniques.
+- Collection of dynamic sign sequences and use of temporal models (e.g., LSTM or 3D CNN).
+- Enhanced pre-processing to normalize hand orientation and scale.
 
 ## VI. Software Architecture
 
