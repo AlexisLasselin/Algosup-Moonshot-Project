@@ -27,7 +27,17 @@
       - [Training Process](#training-process)
     - [5. Performance and Limitations](#5-performance-and-limitations)
   - [VI. Software Architecture](#vi-software-architecture)
+    - [1. Architecture Overview](#1-architecture-overview)
+    - [2. Frontend (Client-Side)](#2-frontend-client-side)
+    - [3. Backend (Server-Side)](#3-backend-server-side)
+    - [4. Model Integration](#4-model-integration)
+    - [5. Data Flow Diagram](#5-data-flow-diagram)
+    - [6. API Overview](#6-api-overview)
   - [VII. Algorithm and Model Design](#vii-algorithm-and-model-design)
+    - [1. Chosen Algorithm and Frameworks](#1-chosen-algorithm-and-frameworks)
+    - [2. Training Methodology](#2-training-methodology)
+    - [3. Performance Evaluation](#3-performance-evaluation)
+    - [4. Strengths and Limitations](#4-strengths-and-limitations)
   - [VIII. Testing Strategy](#viii-testing-strategy)
   - [IX. Deployment and Production](#ix-deployment-and-production)
   - [X. Project Management](#x-project-management)
@@ -233,17 +243,94 @@ These limitations will be addressed in future iterations through:
 
 ## VI. Software Architecture
 
-- Backend and frontend structure
-- Data flow diagram
-- Model integration
-- APIs and components
+This section presents the intended architecture of the application, as designed during the planning phase. It is important to note that the full software architecture described here is **theoretical** and has not yet been fully developed or implemented. It serves as a foundation for future development.
+
+### 1. Architecture Overview
+
+The project follows a **client–server architecture**, where the frontend (mobile or web app) handles user interaction and input capture, and the backend is responsible for processing the data and running the model (or serving predictions from a pre-trained model).
+
+This architecture has been designed but is not yet deployed. The current focus of the project is on the development of the sign recognition prototype.
+
+### 2. Frontend (Client-Side)
+
+- Intended to be built using **React Native** for mobile compatibility.
+- Will handle camera access to capture video of hand gestures.
+- Will display model predictions (textual output).
+- As of now, this interface exists only as a conceptual design.
+
+### 3. Backend (Server-Side)
+
+- Designed to be implemented in **Flask (Python)**.
+- Will expose API endpoints for prediction and processing.
+- Not yet developed — currently, no backend is running.
+
+### 4. Model Integration
+
+Two theoretical deployment strategies have been considered:
+
+- **Client-side inference** using **TensorFlow.js** for offline prediction.
+- **Server-side inference** via a Flask API for centralized processing.
+
+Neither option has been implemented yet, but both are technically feasible.
+
+### 5. Data Flow Diagram
+
+![Data Flow Diagram](./diagram.png)
+
+This diagram represents the planned flow of data once the system is developed.
+
+### 6. API Overview
+
+| Endpoint          | Method | Description                                   | Status          |
+| ----------------- | ------ | --------------------------------------------- | --------------- |
+| `/predict`        | POST   | Receives landmark data and returns prediction | Planned         |
+| `/health`         | GET    | Returns API status                            | Planned         |
+| `/log` _(future)_ | POST   | Logs usage data or errors                     | Conceptual only |
 
 ## VII. Algorithm and Model Design
 
-- Chosen algorithm(s) and frameworks
-- Training methodology
-- Performance evaluation
-- Strengths and limitations
+This section details the design of the sign recognition model and its training methodology. While some prototyping has been conducted using MediaPipe and Google Teachable Machine, the complete pipeline remains **theoretical at this stage**. Only partial experimentation has been done, and no finalized system is in production yet.
+
+### 1. Chosen Algorithm and Frameworks
+
+The recognition model is based on a simple **neural network classifier**, trained using **Google Teachable Machine**. It takes as input the 3D coordinates of hand landmarks detected by MediaPipe.
+
+This approach was selected for its accessibility and speed of prototyping, though it remains at the experimentation stage.
+
+### 2. Training Methodology
+
+- A preliminary dataset of static hand signs (A–Z) was created using sample captures.
+- MediaPipe was used to extract landmark positions.
+- A small model was trained using the Teachable Machine interface.
+- The resulting TensorFlow.js model has not yet been fully integrated into any application.
+
+This methodology is currently being explored, and the results are not finalized.
+
+### 3. Performance Evaluation
+
+Some basic testing was performed manually, using live webcam input and previewing model outputs.
+
+- **Validation accuracy**: ~90% on controlled input.
+- **Real-world accuracy**: Unmeasured — no structured test suite exists yet.
+- **Latency**: Acceptable in browser (~0.5–1s), not yet tested on mobile.
+
+These results are preliminary and meant to guide future iterations.
+
+### 4. Strengths and Limitations
+
+**Strengths (in theory):**
+
+- Lightweight and fast inference.
+- Compatible with mobile and web platforms.
+- Requires minimal hardware.
+
+**Limitations (current state):**
+
+- No support for dynamic gestures.
+- Model accuracy is sensitive to environment.
+- Pipeline not fully integrated or tested in a real app.
+
+These observations are based on early experiments and serve to inform future development stages. The goal is to incrementally validate this architecture and training strategy through iterative testing and implementation.
 
 ## VIII. Testing Strategy
 
