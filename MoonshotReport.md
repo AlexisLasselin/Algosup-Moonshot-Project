@@ -98,8 +98,9 @@ This application is primarily designed for:
 - **Deaf Individuals Able to Use LSF**: To empower them to communicate more effectively in everyday situations, such as shopping, asking for directions, or attending appointments.
   Note than the app is intended to help them, so the person that might use it is not the deaf individual, but rather the hearing person who needs to communicate with them.
 - **Companies and Organizations**: To improve inclusivity in customer service, healthcare, and public services by enabling staff to communicate with deaf clients.
-  > [!NOTE]
-  > Since the law [n° 2005-102 from February 11, 2005](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000809647?isSuggest=true) mandates accessibility for people with disabilities, including those who are deaf or hard of hearing, this app can help organizations comply with these requirements.
+
+> [!NOTE]
+> Since the law [n° 2005-102 from February 11, 2005](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000809647?isSuggest=true) mandates accessibility for people with disabilities, including those who are deaf or hard of hearing, this app can help organizations comply with these requirements.
 
 ### Contexts of Use
 
