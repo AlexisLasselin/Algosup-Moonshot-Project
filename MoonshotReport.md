@@ -75,9 +75,9 @@
 
 ## I. Introduction
 
-In France, approximately 200,000 people are completely deaf, and many more are hard of hearing. For many of them, French Sign Language (LSF) is the primary means of communication. Yet, despite its importance, LSF remains marginalized — it is not officially recognized as a language by the French government, and is not taught in schools as foreign languages like English or Spanish are.
+In France, approximately 200,000 people are completely deaf, and many more are hard of hearing. For many of them, French Sign Language (LSF) is the primary means of communication. Yet, despite its importance, LSF remains marginalized — it is not officially recognized as a language by the French government and is not taught in schools as foreign languages like English or Spanish are.
 
-This lack of formal recognition creates a significant communication gap between the deaf and hearing populations. While some individuals do learn LSF, it is far from widespread. As a result, deaf people often struggle to communicate effectively in key situations — particularly in administrative, medical, or social contexts — where LSF interpreters are not always available, especially outside of major cities.
+This lack of formal recognition creates a significant communication gap between the deaf and hearing populations. While some individuals do learn LSF, it is by no means widespread. As a result, deaf people often struggle to communicate effectively in key situations — particularly in administrative, medical, or social contexts — where LSF interpreters are not always available, especially outside of major cities.
 
 To cope, many rely on written communication, which can be frustrating, limited, and far from inclusive.
 
@@ -123,7 +123,7 @@ This application is primarily designed for:
 
 - **Administrative and Medical Professionals**: To facilitate communication with deaf clients or patients who use LSF.
 - **Deaf Individuals Able to Use LSF**: To empower them to communicate more effectively in everyday situations, such as shopping, asking for directions, or attending appointments.
-  Note than the app is intended to help them, so the person that might use it is not the deaf individual, but rather the hearing person who needs to communicate with them.
+  Note that the app is intended to help them, so the person who might use it is not the deaf individual, but rather the hearing person who needs to communicate with them.
 - **Companies and Organizations**: To improve inclusivity in customer service, healthcare, and public services by enabling staff to communicate with deaf clients.
 
 > [!NOTE]
@@ -154,13 +154,13 @@ The application is designed to facilitate communication between deaf individuals
 
 ### 1. Core Feature: Sign-to-Text Translation
 
-This feature enables users to perform signs in front of their device’s camera. The app captures the gesture and uses a machine learning model to recognize the sign and convert it into written French.
+This feature enables users to perform signs in front of their device’s camera. The app captures the gesture and uses a machine-learning model to recognize the sign and convert it into written French.
 
 The sign-to-text module will initially support a limited set of static signs, starting with the LSF alphabet. As the system evolves, support for dynamic signs and full expressions will be added.
 
 ### 2. Target Users
 
-This feature is primarily intended for **hearing individuals** who need to understand what a deaf person is signing in real time. The key user groups include:
+This feature is primarily intended for **hearing individuals** who need to understand what a deaf person is signing in real-time. The key user groups include:
 
 - **Family members and friends** of deaf individuals who do not know LSF.
 - **Administrative personnel** (e.g., in town halls, social services, or banks) who interact with the public.
@@ -174,7 +174,7 @@ The typical interaction for this feature will follow these steps:
 
 1. The hearing person opens the app on their phone or tablet.
 2. The deaf person signs a word or letter in front of the camera.
-3. The app analyzes the gesture and displays the corresponding French word or character in real time.
+3. The app analyzes the gesture and displays the corresponding French word or character in real-time.
 
 ### 4. Accessibility Considerations
 
@@ -195,7 +195,7 @@ This section focuses on the technical implementation of the sign recognition com
 The sign recognition system consists of the following stages:
 
 1. **Image Capture**: The app accesses the device’s camera and captures frames of the user performing signs.
-2. **Landmark Detection**: MediaPipe is used to extract hand, face, and body landmarks in real time.
+2. **Landmark Detection**: MediaPipe is used to extract hand, face, and body landmarks in real-time.
 3. **Feature Extraction**: The 3D coordinates of key landmarks are transformed into a flat vector.
 4. **Classification**: A machine learning model, trained via Google Teachable Machine and exported in TensorFlow.js format, classifies the gesture based on the landmark data.
 
@@ -243,7 +243,7 @@ The extracted landmarks (x, y, z coordinates) are stored and labeled to create a
 
 ### 4. Model Training via Teachable Machine
 
-Google Teachable Machine was chosen for training the first prototype because of its simplicity and ability to export TensorFlow\.js models.
+Google Teachable Machine was chosen for training the prototype because of its simplicity and ability to export TensorFlow\.js models.
 
 #### Training Process
 
@@ -252,7 +252,7 @@ Google Teachable Machine was chosen for training the first prototype because of 
 - A classifier is trained using a simple neural network.
 - The model is exported in `.json` (architecture) and `.bin` (weights) formats for direct use in web or mobile apps.
 
-Although Teachable Machine does not provide control over hyperparameters or architecture depth, it allows for **fast iteration** and **deployment-ready models**, which suits early-stage prototyping.
+Although Teachable Machine does not provide control over hyperparameters or architecture depth, it allows for **fast iteration** and **deployment-ready models**, which suit early-stage prototyping.
 
 ### 5. Performance and Limitations
 
@@ -275,7 +275,7 @@ This section presents the intended architecture of the application, as designed 
 
 ### 1. Architecture Overview
 
-The project follows a **client–server architecture**, where the frontend (mobile or web app) handles user interaction and input capture, and the backend is responsible for processing the data and running the model (or serving predictions from a pre-trained model).
+The project follows a **client-server architecture**, where the front (mobile or web app) handles user interaction and input capture, and the backend is responsible for processing the data and running the model (or serving predictions from a pre-trained model).
 
 This architecture has been designed but is not yet deployed. The current focus of the project is on the development of the sign recognition prototype.
 
@@ -355,7 +355,7 @@ These results are preliminary and meant to guide future iterations.
 **Limitations (current state):**
 
 - No support for dynamic gestures.
-- Model accuracy is sensitive to environment.
+- Model accuracy is sensitive to the environment.
 - Pipeline not fully integrated or tested in a real app.
 
 These observations are based on early experiments and serve to inform future development stages. The goal is to incrementally validate this architecture and training strategy through iterative testing and implementation.
@@ -370,11 +370,11 @@ At this stage, no automated test suite has been implemented. Only **manual testi
 
 #### Manual Tests Performed
 
-- Live gesture classification using pre-trained model.
+- Live gesture classification using a pre-trained model.
 - Accuracy observed under different lighting conditions and hand positions.
 - Real-time responsiveness and latency evaluated visually.
 
-These tests provided basic feedback on the model’s strengths and limitations, but did not involve quantitative validation or reproducible benchmarks.
+These tests provided basic feedback on the model’s strengths and limitations but did not involve quantitative validation or reproducible benchmarks.
 
 ### 2. Planned Testing Types
 
@@ -461,18 +461,18 @@ The project was structured into four major phases:
 
 | Phase                        | Description                                                         |
 | ---------------------------- | ------------------------------------------------------------------- |
-| **Research & Ideation**      | Exploration of LSF, existing tools, user needs                      |
+| **Research & Ideation**      | Exploration of LSF, existing tools, and user needs                  |
 | **Documentation & Planning** | Defining functional specs, technical requirements, and architecture |
 | **Technical Discovery**      | Learning MediaPipe and testing Google Teachable Machine             |
 | **Prototype Development**    | Building scripts, collecting data, training simple model            |
-| **Testing**                  | Preparing report, testing basic flows, planning future steps        |
+| **Testing**                  | Preparing a report, testing basic flows, planning future steps      |
 
 ### 3. Challenges Encountered and How They Were Managed
 
 #### a. **Technical Complexity of Sign Language Learning**
 
 - **Challenge**: Understanding the nuances of LSF and its grammar, which is quite different from spoken French.
-- **Response**: I started with to learn the LSF with Com'Signes, an association, composed of deaf people, that offers classes and resources for learning LSF.
+- **Response**: I started with learning the LSF with Com'Signes, an association, composed of deaf people, that offers classes and resources for learning LSF.
 
 #### b. **Technical Complexity of Gesture Recognition**
 
@@ -565,6 +565,6 @@ These future developments aim to transform the current prototype into a robust, 
 
 Through those 3 years, I have learned a lot more than I could ever imagine. This project has been a journey of discovery, not only in the technical aspects of machine learning and mobile development but also in understanding the profound impact that technology can have on people's lives.
 
-During these period, I developped contacts, I learned new skills such as LSF, python and more specifically MediaPipe, and I gained a deeper appreciation for the challenges faced by the deaf community in France. I am excited about the potential of this application to make a real difference in their daily lives.
+During this period, I developed contacts, I learned new skills such as LSF, python, and more specifically MediaPipe, and I gained a deeper appreciation for the challenges faced by the deaf community in France. I am excited about the potential of this application to make a real difference in their daily lives.
 
 I am grateful for the support and guidance I received from my professors, mentors, and peers throughout this process. Their insights and encouragement have been invaluable in shaping this project. I look forward to continuing this work, expanding the application's capabilities, and ultimately contributing to a more inclusive society where communication barriers are minimized. The journey is just beginning, and I am eager to see where it leads.
