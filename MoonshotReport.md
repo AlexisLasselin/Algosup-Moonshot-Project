@@ -39,10 +39,37 @@
     - [3. Performance Evaluation](#3-performance-evaluation)
     - [4. Strengths and Limitations](#4-strengths-and-limitations)
   - [VIII. Testing Strategy](#viii-testing-strategy)
-  - [IX. Deployment and Production](#ix-deployment-and-production)
-  - [X. Project Management](#x-project-management)
-  - [XI. Future Developments](#xi-future-developments)
-  - [XII. Conclusion](#xii-conclusion)
+    - [1. Current Testing Status](#1-current-testing-status)
+      - [Manual Tests Performed](#manual-tests-performed)
+    - [2. Planned Testing Types](#2-planned-testing-types)
+      - [a. **Unit Testing**](#a-unit-testing)
+      - [b. **Model Validation Testing**](#b-model-validation-testing)
+      - [c. **Usability Testing (Planned)**](#c-usability-testing-planned)
+      - [d. **Performance Testing**](#d-performance-testing)
+    - [3. Test Environments](#3-test-environments)
+    - [4. Limitations of Current Testing](#4-limitations-of-current-testing)
+    - [5. Future Goals](#5-future-goals)
+  - [IX. Project Management](#ix-project-management)
+    - [1. Methodology Used](#1-methodology-used)
+    - [2. Timeline and Planning](#2-timeline-and-planning)
+    - [3. Challenges Encountered and How They Were Managed](#3-challenges-encountered-and-how-they-were-managed)
+      - [a. **Technical Complexity of Sign Language Learning**](#a-technical-complexity-of-sign-language-learning)
+      - [b. **Technical Complexity of Gesture Recognition**](#b-technical-complexity-of-gesture-recognition)
+      - [c. **Time Constraints**](#c-time-constraints)
+      - [d. **Tool Limitations**](#d-tool-limitations)
+      - [e. **Lack of Real-User Testing**](#e-lack-of-real-user-testing)
+  - [X. Future Developments](#x-future-developments)
+    - [1. Dynamic Sign Recognition](#1-dynamic-sign-recognition)
+      - [Planned Enhancements](#planned-enhancements)
+    - [2. Mobile Application Development](#2-mobile-application-development)
+      - [Planned Stack](#planned-stack)
+    - [3. Expanded Vocabulary and Real-Life Scenarios](#3-expanded-vocabulary-and-real-life-scenarios)
+      - [Examples](#examples)
+    - [4. Learning and Feedback Features](#4-learning-and-feedback-features)
+      - [Potential Features](#potential-features)
+    - [5. User Testing and Collaboration](#5-user-testing-and-collaboration)
+      - [Plans](#plans)
+  - [XI. Conclusion](#xi-conclusion)
 
 </details>
 
@@ -335,33 +362,209 @@ These observations are based on early experiments and serve to inform future dev
 
 ## VIII. Testing Strategy
 
-- Functional testing
-- Model accuracy and validation
-- User feedback and iterations
-- Tools used
+This section outlines the current and planned testing efforts related to the sign recognition component of the application. Given that the project is still in an early prototype phase, most tests remain theoretical or exploratory. However, they establish a foundation for more structured evaluation in future iterations.
 
-## IX. Deployment and Production
+### 1. Current Testing Status
 
-- Hosting strategy
-- App publication plans (e.g., app stores)
-- Maintenance and updates
-- Data privacy and ethical concerns
+At this stage, no automated test suite has been implemented. Only **manual testing** has been conducted using the webcam and the browser-based interface provided by Google Teachable Machine.
 
-## X. Project Management
+#### Manual Tests Performed
 
-- Methodology used (Agile, Kanban, etc.)
-- Timeline and planning
-- Tools for organization (Trello, GitHub, etc.)
-- Challenges encountered and how they were managed
+- Live gesture classification using pre-trained model.
+- Accuracy observed under different lighting conditions and hand positions.
+- Real-time responsiveness and latency evaluated visually.
 
-## XI. Future Developments
+These tests provided basic feedback on the model’s strengths and limitations, but did not involve quantitative validation or reproducible benchmarks.
 
-- Short-term enhancements
-- Long-term vision
-- Potential collaborations and scaling
+### 2. Planned Testing Types
 
-## XII. Conclusion
+Once the system progresses beyond the prototyping stage, the following testing strategies will be applied:
 
-- Summary of learnings
-- Reflections on the project
-- Next steps professionally and technically
+#### a. **Unit Testing**
+
+- For any preprocessing or data handling scripts (e.g., landmark normalization, API data formatting).
+- Implemented in Python using `unittest` or `pytest`.
+
+#### b. **Model Validation Testing**
+
+- Evaluate model performance using a **labeled test dataset**.
+- Key metrics:
+  - **Accuracy**
+  - **Precision / Recall**
+  - **Confusion Matrix** (to identify commonly misclassified signs)
+- Models will be validated on both training and unseen users to evaluate generalization.
+
+#### c. **Usability Testing (Planned)**
+
+- Engage a small group of users (both deaf and hearing) to interact with the app prototype.
+- Focus on ease of use, clarity of output, and communication efficiency.
+- Collect qualitative feedback through short interviews or surveys.
+
+#### d. **Performance Testing**
+
+- Measure latency for:
+  - Webcam input to prediction result (client-side inference).
+  - Network delay if using server-side prediction.
+- Test on different devices (mobile vs. desktop) for compatibility and speed.
+
+### 3. Test Environments
+
+| Environment         | Status        | Description                                |
+| ------------------- | ------------- | ------------------------------------------ |
+| Teachable Machine   | Used          | Web-based model training and live testing  |
+| Local Python Script | Partial       | MediaPipe landmark extraction in real time |
+| React Native App    | Not developed | Planned for mobile integration             |
+| Flask Backend API   | Not developed | Placeholder for future server deployment   |
+
+### 4. Limitations of Current Testing
+
+- No dataset versioning or automated validation.
+- No reproducibility of test cases due to manual execution.
+- No quantitative error tracking or logging implemented yet.
+
+### 5. Future Goals
+
+To mature the testing process, the following goals are planned:
+
+- Build a labeled dataset for systematic validation.
+- Implement a structured test pipeline for model training.
+- Deploy a testable web or mobile interface with basic logging.
+- Include accessibility testing with real users from the deaf community.
+
+This progressive strategy ensures that testing scales with the technical growth of the project while remaining user-centered and inclusive.
+
+## IX. Project Management
+
+This section outlines how the project was planned and managed throughout its development cycle. As a solo project conducted within the context of a bachelor’s degree program, the focus was on iterative prototyping and goal-oriented planning, rather than formal team-based workflows.
+
+### 1. Methodology Used
+
+I adopted a **lightweight Agile-inspired approach**, primarily focused on flexibility and rapid iteration. While I did not follow a strict Scrum or Agile process, I organized my work into short development cycles with clear, achievable objectives.
+
+Each cycle focused on a specific task or milestone, such as:
+
+- Learning LSF basics
+- Creating and collecting gesture samples
+- Setting up MediaPipe scripts
+- Training and testing the prototype model
+
+This iterative method allowed me to adapt as new challenges or technical constraints emerged.
+
+I tried to document as much as possible my progress via monthly reports, which helped me stay organized and reflect on my learning journey. The reports included:
+
+- My research phase about my moonshot ideas, project goals, and initial planning. [See the first reports](./MontlyRecap/1_Research/)
+- My documentation of t
+
+### 2. Timeline and Planning
+
+The project was structured into four major phases:
+
+| Phase                        | Description                                                         |
+| ---------------------------- | ------------------------------------------------------------------- |
+| **Research & Ideation**      | Exploration of LSF, existing tools, user needs                      |
+| **Documentation & Planning** | Defining functional specs, technical requirements, and architecture |
+| **Technical Discovery**      | Learning MediaPipe and testing Google Teachable Machine             |
+| **Prototype Development**    | Building scripts, collecting data, training simple model            |
+| **Testing**                  | Preparing report, testing basic flows, planning future steps        |
+
+### 3. Challenges Encountered and How They Were Managed
+
+#### a. **Technical Complexity of Sign Language Learning**
+
+- **Challenge**: Understanding the nuances of LSF and its grammar, which is quite different from spoken French.
+- **Response**: I started with to learn the LSF with Com'Signes, an association, composed of deaf people, that offers classes and resources for learning LSF.
+
+#### b. **Technical Complexity of Gesture Recognition**
+
+- **Challenge**: Learning computer vision and machine learning techniques without prior experience.
+- **Response**: Focused on static signs for the prototype to reduce complexity and used Teachable Machine to simplify model training.
+
+#### c. **Time Constraints**
+
+- **Challenge**: Balancing academic requirements, personal learning, and development goals within a short period.
+- **Response**: Prioritized building a functional core (sign-to-text recognition) instead of over-extending the feature set.
+
+#### d. **Tool Limitations**
+
+- **Challenge**: Limited control over model architecture using Teachable Machine.
+- **Response**: Treated current tools as temporary solutions, with plans to move to TensorFlow/Keras for future custom models.
+
+#### e. **Lack of Real-User Testing**
+
+- **Challenge**: No direct access to deaf users or sign language experts during development.
+- **Response**: Designed the app with public LSF standards and open feedback loops for future testing rounds.
+
+---
+
+This flexible, self-managed approach allowed me to stay focused on meaningful deliverables and adapt the project scope as needed. While not formally structured like an industry Agile team, the process was aligned with the goals of fast iteration, learning, and progressive development.
+
+## X. Future Developments
+
+Although the current project focuses on static sign recognition using the LSF alphabet, there are several key directions for future development that will significantly enhance the scope, usability, and real-world impact of the application.
+
+### 1. Dynamic Sign Recognition
+
+One of the most important next steps is to move beyond static gesture classification and begin supporting **dynamic signs**, which involve motion over time (e.g., directional gestures, repeated movements, or transitions between hand shapes).
+
+#### Planned Enhancements
+
+- **Motion Tracking**: Implement a recording system capable of capturing short video sequences (instead of single frames) with timestamped landmark data.
+- **Temporal Modeling**: Train models using techniques like:
+  - **Recurrent Neural Networks (RNNs)** or **LSTM** to handle time-series data.
+  - **3D Convolutional Neural Networks (3D CNNs)** for spatiotemporal analysis.
+- **Dataset Expansion**: Collect dynamic gesture samples, labeled with motion annotations.
+
+These changes will allow the application to understand full signs (not just letters), leading to more natural, fluid communication.
+
+### 2. Mobile Application Development
+
+To increase accessibility and usability, a full **mobile version** of the application is planned. The prototype is currently desktop-based or browser-bound, but real-world usage requires portability.
+
+#### Planned Stack
+
+- **Frontend**: React Native (cross-platform for iOS and Android).
+- **Camera Integration**: Native device camera API for gesture capture.
+- **Offline Support**: Embedded model with TensorFlow Lite or TensorFlow.js for local predictions.
+- **Simple UX**: Streamlined interface tailored for use in real-time conversations (large buttons, voice output, minimal menus).
+
+### 3. Expanded Vocabulary and Real-Life Scenarios
+
+Beyond the alphabet, the application should gradually support full words and phrases relevant to daily interactions.
+
+#### Examples
+
+- Context-specific vocabularies: “at the doctor”, “at the bank”, “shopping”.
+- Preloaded signs for emergency expressions.
+- A mode for **guided conversations**, where users can select topics or phrases visually.
+
+### 4. Learning and Feedback Features
+
+In the long term, the application could also serve as a **learning platform** for both hearing and deaf users.
+
+#### Potential Features
+
+- Sign recognition accuracy feedback.
+- Gamified learning (e.g., quizzes, challenges).
+- Progress tracking for learners of LSF.
+
+### 5. User Testing and Collaboration
+
+As the project evolves, involving real users will be critical.
+
+#### Plans
+
+- **Collaborate with LSF teachers or institutions** to validate signs and interactions.
+- **Test with deaf individuals** to refine accessibility and user interface.
+- **Create feedback channels** within the app to collect user insights and error reports.
+
+---
+
+These future developments aim to transform the current prototype into a robust, inclusive, and impactful tool that supports real-life communication between deaf and hearing individuals. By expanding both the **technical capabilities** and **user focus** of the application, the project has the potential to evolve into a valuable public resource.
+
+## XI. Conclusion
+
+Through those 3 years, I have learned a lot more than I could ever imagine. This project has been a journey of discovery, not only in the technical aspects of machine learning and mobile development but also in understanding the profound impact that technology can have on people's lives.
+
+During these period, I developped contacts, I learned new skills such as LSF, python and more specifically MediaPipe, and I gained a deeper appreciation for the challenges faced by the deaf community in France. I am excited about the potential of this application to make a real difference in their daily lives.
+
+I am grateful for the support and guidance I received from my professors, mentors, and peers throughout this process. Their insights and encouragement have been invaluable in shaping this project. I look forward to continuing this work, expanding the application's capabilities, and ultimately contributing to a more inclusive society where communication barriers are minimized. The journey is just beginning, and I am eager to see where it leads.
