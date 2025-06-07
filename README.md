@@ -9,7 +9,7 @@ When we ask the people concerned why, it's for two main reasons:
 - A lack of education about it
 - A lack of usefulness, because few people can understand them.
 
-## My solution
+## My solution: MonSigne
 
 Although I can't help people learn sign language, I want to help people who can speak it by enabling them to communicate with as many people as possible.
 
